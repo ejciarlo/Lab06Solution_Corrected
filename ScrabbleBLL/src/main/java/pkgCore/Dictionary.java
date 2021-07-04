@@ -267,8 +267,29 @@ public class Dictionary {
 	public ArrayList<Word> GenerateWords(String strLetters, WordFilter WF) {
 		
 		ArrayList<Word> arrGeneratedWords = this.GenerateWords(strLetters);
-		
-		//TODO: Complete the method for Lab 5
+		if (WF.getiLength() > 0) {
+			arrGeneratedWords = (ArrayList<Word>) arrGeneratedWords.stream().filter(x -> x.getWord().length() == WF.getiLength())
+					.collect(Collectors.toList());
+		}
+		if (WF.getStrStartWith() != null) {
+			arrGeneratedWords = (ArrayList<Word>) arrGeneratedWords.stream()
+					.filter(x -> x.getWord().startsWith(WF.getStrStartWith())).collect(Collectors.toList());
+		}
+		if (WF.getStrEndWith() != null) {
+			arrGeneratedWords = (ArrayList<Word>) arrGeneratedWords.stream().filter(x -> x.getWord().endsWith(WF.getStrEndWith()))
+					.collect(Collectors.toList());
+		}
+		if (WF.getStrContains() != null) {
+			if (WF.getiContainsIdx() == -1)
+				arrGeneratedWords = (ArrayList<Word>) arrGeneratedWords.stream()
+						.filter(x -> x.getWord().contains(WF.getStrContains())).collect(Collectors.toList());
+			else if (WF.getiContainsIdx() >= 0) {
+				arrGeneratedWords = (ArrayList<Word>) arrGeneratedWords.stream()
+						.filter(x -> x.getWord().contains(WF.getStrContains()))
+						.filter(y -> y.getWord().indexOf(WF.getStrContains()) == WF.getiContainsIdx())
+						.collect(Collectors.toList());
+			}
+		}
 
 		
 		return arrGeneratedWords;
