@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.*;
 
 import org.apache.commons.math3.util.CombinatoricsUtils;
 
@@ -222,7 +223,6 @@ public class Dictionary {
 		return Math.abs(idx + 1);
 
 	}
- 
 
 	/**
 	 * GenerateWords - Public facing method. If you call this with a string, it will
@@ -252,6 +252,26 @@ public class Dictionary {
 		ArrayList<Word> WordsPermut = new ArrayList<Word>(hsUniqueWords);
 		Collections.sort(WordsPermut, Word.CompWord);
 		return WordsPermut;
+	}
+	
+	/**
+	 * GenerateWords - Overloaded GenerateWords, apply filter with given WordFilter
+	 * 
+	 * @author BRG
+	 * @version Lab #5
+	 * @since Lab #5
+	 * @param strLetters
+	 * @param WF
+	 * @return
+	 */
+	public ArrayList<Word> GenerateWords(String strLetters, WordFilter WF) {
+		
+		ArrayList<Word> arrGeneratedWords = this.GenerateWords(strLetters);
+		
+		//TODO: Complete the method for Lab 5
+
+		
+		return arrGeneratedWords;
 	}
 
 	/**
@@ -302,7 +322,13 @@ public class Dictionary {
 				for (Character chrs : p) {
 					strBuild = strBuild + chrs;
 				}
-				hsPossibleWords.add(new Word(strBuild));
+				//	LAB 5 added.
+				HashSet<Word> PossibleWords = this.findWords(strBuild);
+				if (PossibleWords != null && PossibleWords.size() > 0) {
+					hsPossibleWords.addAll(PossibleWords);
+				}
+				
+				//hsPossibleWords.add(new Word(strBuild));
 			}
 		}
 		return hsPossibleWords;

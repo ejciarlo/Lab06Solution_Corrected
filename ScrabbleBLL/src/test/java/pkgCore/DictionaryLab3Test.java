@@ -16,7 +16,7 @@ public class DictionaryLab3Test {
 		Dictionary d = new Dictionary();
 		String strLetters = "ABCDE";
 		ArrayList<Word> words = d.GenerateWords(strLetters);
-		assertEquals(325, d.GenerateWords(strLetters).size());
+		assertEquals(20, d.GenerateWords(strLetters).size());
 		Util.PrintEnd(new Throwable().getStackTrace()[0].getMethodName());
 	}
 
@@ -26,7 +26,7 @@ public class DictionaryLab3Test {
 		Dictionary d = new Dictionary();
 		String strLetters = "ABB";
 		ArrayList<Word> words = d.GenerateWords(strLetters);
-		assertEquals(8, d.GenerateWords(strLetters).size());
+		assertEquals(2, d.GenerateWords(strLetters).size());
 		Util.PrintEnd(new Throwable().getStackTrace()[0].getMethodName());
 	}
 
@@ -36,7 +36,7 @@ public class DictionaryLab3Test {
 		Dictionary d = new Dictionary();
 		String strLetters = "ABC";
 		ArrayList<Word> words = d.GenerateWords(strLetters);
-		assertEquals(15, d.GenerateWords(strLetters).size());
+		assertEquals(3, d.GenerateWords(strLetters).size());
 		Util.PrintEnd(new Throwable().getStackTrace()[0].getMethodName());
 	}
 	
