@@ -30,45 +30,7 @@ public class Letter {
 //		8 Points - J and X.
 //		10 Points - Q and Z.
 		
-		iScore = switch (letter) {
-
-	    case 'A':
-	    case 'E':
-	    case 'I':
-	    case 'L':
-	    case 'N':
-	    case 'O':
-	    case 'R':
-	    case 'S':
-	    case 'T':
-	    case 'U':
-	        yield 1;
-	    case 'D':
-	    case 'G':
-	        yield 2;
-		case 'B':
-		case 'C':
-		case 'M':
-		case 'P':
-			yield 3;	
-		case 'F':
-		case 'H':
-		case 'V':
-		case 'W':
-		case 'Y':
-			yield 4;	
-		case 'K':
-			yield 5;
-		case 'J':
-		case 'X':
-			yield 8;
-		case 'Q':
-		case 'Z':
-			yield 10;			
-	    // No default
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + letter);
-			};	
+		//TODO: Set iScore based on the given letter.  A = 1, B = 3, etc
 	}
 	
 	
